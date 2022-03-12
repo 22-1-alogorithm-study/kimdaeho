@@ -1,0 +1,24 @@
+from collections import deque
+#그냥 정의 문제
+def solution(n, computers):
+    answer = 0
+    visited=[0]*(n)
+    def bfs(visited,computers,start):
+        queue=deque()
+        queue.append(start)
+        while queue:
+            start=queue.popleft() 
+            visited[start]=1
+            for i in range(n):
+                if computers[start][i] and not visited[i]:
+                    queue.append(i)
+          
+#리스트 연결 관계가 [[1,1,0],[1,1,0],[0,0,1]] 이런식으로 다루어지기 때문에 
+#index 함수를 이용한 것은 이 문제에서 불가능함 index 함수는 맨 처음 요소만 구해짐
+          
+    for i in range(n):
+        if not visited[i]:
+            bfs(visited,computers,i)
+            answer+=1
+  
+    return answer
