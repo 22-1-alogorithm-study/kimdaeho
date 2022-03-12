@@ -1,0 +1,11 @@
+n=int(input())
+data=[]
+data=(list(map(int,input().split())))
+if len(data)==1:
+  print(data[0]*data[0])
+elif len(data)==2:
+  print(data[0]*data[1])
+else:
+  data.sort()
+  print(data[0]*data[-1])
+  #시간복잡도O(NlogN)
