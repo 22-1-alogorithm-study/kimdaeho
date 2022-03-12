@@ -1,0 +1,15 @@
+from collections import deque
+#이문제 dfs bfs로 보는게 제일 어려웠다
+def solution(numbers, target):
+    answer = 0
+    data=[0]
+    for i in numbers:
+        tmp=[]
+        for j in data:
+            tmp.append(j+i)
+            tmp.append(j-i)
+        data=tmp
+    for i in data:
+        if i == target:
+            answer += 1
+    return answer
